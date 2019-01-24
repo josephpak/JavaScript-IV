@@ -139,8 +139,8 @@ const ryan = new ProjectManager({
 // ryan.debugsCode(joe, 'Unforgiveable Curses') //​​​​​ Ryan debugs Joe's code on Unforgiveable Curses​​​​​
 
 // ===== Stretch Method Tests
-console.log(joe.grade);
-ryan.updateGrade(joe)
-console.log(joe.grade)
+// console.log(joe.grade);
+// ryan.updateGrade(joe)
+// console.log(joe.grade)
 
-joe.graduate()
+// joe.graduate()
