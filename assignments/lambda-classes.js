@@ -24,6 +24,9 @@ class Instructor extends Person {
     grade(student, subject){
         console.log(`${student.name} receives a perfect score on ${subject}`);
     }
+    updateGrade(student){
+        student.grade += Math.floor(Math.random() * (100 - (-100)) + -100)
+    }
 }
 
 class Student extends Person {
@@ -32,6 +35,7 @@ class Student extends Person {
         this.previousBackground = personAttributes.previousBackground;
         this.className = personAttributes.className;
         this.favSubjects = personAttributes.favSubjects;
+        this.grade = personAttributes.grade;
     }
     listsSubjects() {
         this.favSubjects.forEach(element => console.log(element));
@@ -41,6 +45,13 @@ class Student extends Person {
     }
     sprintChallenge(subject){
         console.log(`${this.name} has begun sprint challenge on ${subject}`);
+    }
+    graduate() {
+        if (this.grade > 70) {
+            console.log(`Huzzah! ${this.name} can graduate!`);
+        } else {
+            console.log(`${this.name} isn't quite ready to graduate yet. Let's go back to grading his/her work`);
+        }
     }
 }
 
@@ -77,7 +88,8 @@ const joe = new Student({
     gender: 'M',
     previousBackground: 'Product Manager',
     className: 'Web17',
-    favSubjects: ['JavaScript', 'Python', 'Machine Learning', 'Responsive Design']
+    favSubjects: ['JavaScript', 'Python', 'Machine Learning', 'Responsive Design'],
+    grade: Math.floor(Math.random() * 100)
 });
 
 
@@ -117,3 +129,10 @@ const ryan = new ProjectManager({
 // ===== Project Manager Class Method Tests
 // ryan.standUp('web17_ryan') //​​​​​ Ryan announces to web17_ryan, @channel standy times!​​​​​​​​​​
 // ryan.debugsCode(joe, 'Unforgiveable Curses') //​​​​​ Ryan debugs Joe's code on Unforgiveable Curses​​​​​
+
+// ===== Stretch Method Tests
+console.log(joe.grade);
+ryan.updateGrade(joe)
+console.log(joe.grade)
+
+joe.graduate()
